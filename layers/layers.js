@@ -82,6 +82,7 @@ var lyr_pipelines_5 = new ol.layer.Vector({
                 declutter: false,
                 source:jsonSource_pipelines_5, 
                 style: style_pipelines_5,
+                permalink:"S",
                 popuplayertitle: "pipelines",
                 interactive: true,
                 title: '<img src="styles/legend/pipelines_5.png" /> pipelines'
