@@ -1,22 +1,10 @@
 ol.proj.proj4.register(proj4);
-ol.proj.get("EPSG:4326").setExtent([139.819645, -28.757268, 141.994744, -27.586875]);
+ol.proj.get("EPSG:4326").setExtent([140.208308, -28.174716, 141.295857, -27.589519]);
 var wms_layers = [];
 
 
-        var lyr_OpenStreetMap_0 = new ol.layer.Tile({
-            'title': 'OpenStreetMap',
-            //'type': 'base',
-            'opacity': 1.000000,
-            
-            
-            source: new ol.source.XYZ({
-    attributions: ' ',
-                url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-            })
-        });
-
-        var lyr_googlesatellite_1 = new ol.layer.Tile({
-            'title': 'google satellite',
+        var lyr_BaseMap_0 = new ol.layer.Tile({
+            'title': 'Base Map',
             permalink:"S",
             //'type': 'base',
             'opacity': 1.000000,
@@ -25,6 +13,18 @@ var wms_layers = [];
             source: new ol.source.XYZ({
     attributions: ' ',
                 url: 'http://mt0.google.com/vt/lyrs=p&hl=en&x={x}&y={y}&z={z}'
+            })
+        });
+
+        var lyr_BaseSatellite_1 = new ol.layer.Tile({
+            'title': 'Base Satellite',
+            //'type': 'base',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
+    attributions: ' ',
+                url: 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}'
             })
         });
 var format_environments_2 = new ol.format.GeoJSON();
@@ -205,8 +205,8 @@ var group_Environment = new ol.layer.Group({
                                 fold: "open",
                                 title: "Environment"});
 
-lyr_OpenStreetMap_0.setVisible(true);lyr_googlesatellite_1.setVisible(true);lyr_environments_2.setVisible(true);lyr_gates_3.setVisible(true);lyr_buildings_4.setVisible(true);lyr_borrow_pits_proposed_5.setVisible(true);lyr_roads_proposed_6.setVisible(true);lyr_fences_7.setVisible(true);lyr_properties_qld_8.setVisible(true);lyr_properties_qld_amended_9.setVisible(true);lyr_properties_sa_10.setVisible(true);lyr_pipelines_11.setVisible(true);lyr_tenements_12.setVisible(true);
-var layersList = [lyr_OpenStreetMap_0,lyr_googlesatellite_1,group_Environment,group_LandAccess,group_Tenure];
+lyr_BaseMap_0.setVisible(true);lyr_BaseSatellite_1.setVisible(false);lyr_environments_2.setVisible(false);lyr_gates_3.setVisible(true);lyr_buildings_4.setVisible(true);lyr_borrow_pits_proposed_5.setVisible(true);lyr_roads_proposed_6.setVisible(true);lyr_fences_7.setVisible(true);lyr_properties_qld_8.setVisible(true);lyr_properties_qld_amended_9.setVisible(true);lyr_properties_sa_10.setVisible(true);lyr_pipelines_11.setVisible(true);lyr_tenements_12.setVisible(true);
+var layersList = [lyr_BaseMap_0,lyr_BaseSatellite_1,group_Environment,group_LandAccess,group_Tenure];
 lyr_environments_2.set('fieldAliases', {'id': 'id', 'LAND_SYSTEM': 'LAND_SYSTEM', 'LAND_SYSTEM_TYPE': 'LAND_SYSTEM_TYPE', 'VEGETATION_ASSOCIATION': 'VEGETATION_ASSOCIATION', 'SOIL_TYPE': 'SOIL_TYPE', 'SOURCE': 'SOURCE', 'ACCURACY': 'ACCURACY', 'LAST_UPDATE': 'LAST_UPDATE', 'OBJECT_TYPE': 'OBJECT_TYPE', 'GUID': 'GUID', });
 lyr_gates_3.set('fieldAliases', {'id': 'id', 'CONSTRUCTION': 'CONSTRUCTION', 'TYPE': 'TYPE', 'WIDTH_METRES': 'WIDTH_METRES', 'ENCUMBRANCES': 'ENCUMBRANCES', 'LOCKED': 'LOCKED', 'COMMENTS': 'COMMENTS', 'CONSTRUCTION_DATE': 'CONSTRUCTION_DATE', 'SOURCE': 'SOURCE', 'ACCURACY': 'ACCURACY', 'LAST_UPDATE': 'LAST_UPDATE', 'OBJECT_TYPE': 'OBJECT_TYPE', 'SYMBOL_ROTATION': 'SYMBOL_ROTATION', 'GUID': 'GUID', });
 lyr_buildings_4.set('fieldAliases', {'id': 'id', 'NAME': 'NAME', 'PROPERTY_NAME': 'PROPERTY_NAME', 'TYPE': 'TYPE', 'OWNER': 'OWNER', 'OPERATOR': 'OPERATOR', 'COMMENTS': 'COMMENTS', 'OBJECT_TYPE': 'OBJECT_TYPE', 'SOURCE': 'SOURCE', 'ACCURACY': 'ACCURACY', 'CONSTRUCTION_DATE': 'CONSTRUCTION_DATE', 'LAST_UPDATE': 'LAST_UPDATE', 'GUID': 'GUID', });
@@ -230,7 +230,7 @@ lyr_properties_sa_10.set('fieldImages', {'id': 'TextEdit', 'PROPERTY_NAME': 'Tex
 lyr_pipelines_11.set('fieldImages', {'id': 'TextEdit', 'NAME': 'TextEdit', 'NAME_PIMS': 'TextEdit', 'CLASSIFICATION': 'TextEdit', 'PIPELINE_ID': 'TextEdit', 'P_ID_NUMBER': 'TextEdit', 'P_ID_LINE_NUMBER': 'TextEdit', 'LICENSE_NO': 'TextEdit', 'AREA_NUMBER': 'TextEdit', 'SEQUENCE_NUMBER': 'Range', 'DIAMETER_NOMINAL': 'TextEdit', 'SERVICE': 'TextEdit', 'SPECIFICATION': 'TextEdit', 'LINE_TYPE': 'TextEdit', 'PIPELINE_LENGTH_M': 'TextEdit', 'FLUID_TYPE': 'TextEdit', 'OWNER': 'TextEdit', 'OPERATOR': 'TextEdit', 'MAINTENANCE_RESPONSIBILITY': 'TextEdit', 'DESIGN_PRESSURE': 'TextEdit', 'CONSTRUCTION_DATE': 'DateTime', 'COMTRACK_LICENSE_NAME': 'TextEdit', 'COMTRACK_FIELD': 'TextEdit', 'COMMENTS': 'TextEdit', 'SOURCE': 'TextEdit', 'ACCURACY': 'TextEdit', 'LAST_UPDATE': 'DateTime', 'OBJECT_TYPE': 'TextEdit', 'GUID': 'TextEdit', 'COUNTRY_CODE': 'TextEdit', 'STATE_CODE': 'TextEdit', });
 lyr_tenements_12.set('fieldImages', {'id': 'TextEdit', 'NAME': 'TextEdit', 'TENEMENT_TYPE': 'TextEdit', 'TYPE': 'TextEdit', 'OPERATOR': 'TextEdit', 'GRANTED_DATE': 'DateTime', 'EXPIRY_DATE': 'DateTime', 'AREA_SQ_KM': 'TextEdit', 'RELEVANT_ACT': 'TextEdit', 'COUNTRY_CODE': 'TextEdit', 'STATE_CODE': 'TextEdit', 'OBJECT_TYPE': 'TextEdit', 'SOURCE': 'TextEdit', 'ACCURACY': 'TextEdit', 'LAST_UPDATE': 'DateTime', 'GUID': 'TextEdit', 'EA_ID': 'TextEdit', });
 lyr_environments_2.set('fieldLabels', {'id': 'no label', 'LAND_SYSTEM': 'no label', 'LAND_SYSTEM_TYPE': 'no label', 'VEGETATION_ASSOCIATION': 'no label', 'SOIL_TYPE': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'LAST_UPDATE': 'no label', 'OBJECT_TYPE': 'no label', 'GUID': 'no label', });
-lyr_gates_3.set('fieldLabels', {'id': 'inline label - always visible', 'CONSTRUCTION': 'no label', 'TYPE': 'no label', 'WIDTH_METRES': 'no label', 'ENCUMBRANCES': 'no label', 'LOCKED': 'no label', 'COMMENTS': 'no label', 'CONSTRUCTION_DATE': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'LAST_UPDATE': 'no label', 'OBJECT_TYPE': 'no label', 'SYMBOL_ROTATION': 'no label', 'GUID': 'no label', });
+lyr_gates_3.set('fieldLabels', {'id': 'inline label - always visible', 'CONSTRUCTION': 'no label', 'TYPE': 'no label', 'WIDTH_METRES': 'no label', 'ENCUMBRANCES': 'no label', 'LOCKED': 'no label', 'COMMENTS': 'no label', 'CONSTRUCTION_DATE': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'LAST_UPDATE': 'no label', 'OBJECT_TYPE': 'no label', 'SYMBOL_ROTATION': 'no label', 'GUID': 'inline label - always visible', });
 lyr_buildings_4.set('fieldLabels', {'id': 'no label', 'NAME': 'no label', 'PROPERTY_NAME': 'no label', 'TYPE': 'no label', 'OWNER': 'no label', 'OPERATOR': 'no label', 'COMMENTS': 'no label', 'OBJECT_TYPE': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'CONSTRUCTION_DATE': 'no label', 'LAST_UPDATE': 'hidden field', 'GUID': 'no label', });
 lyr_borrow_pits_proposed_5.set('fieldLabels', {'id': 'no label', 'NAME': 'no label', 'OWNER': 'no label', 'CONSTRUCTION_DATE': 'no label', 'TYPE': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'LAST_UPDATE': 'no label', 'EDIDB_INSPECTION_NUMBER': 'no label', 'EQUIPMENT_ID': 'no label', 'OPERATOR': 'no label', 'OBJECT_TYPE': 'no label', 'GUID': 'no label', });
 lyr_roads_proposed_6.set('fieldLabels', {'id': 'no label', 'NAME': 'no label', 'OWNER': 'no label', 'ROAD_TYPE': 'no label', 'USAGE': 'no label', 'ROUTE_PRIORITY': 'no label', 'CONSTRUCTION_DATE': 'no label', 'COMMENTS': 'no label', 'OPERATOR': 'no label', 'SOURCE': 'no label', 'ACCURACY': 'no label', 'LAST_UPDATE': 'no label', 'OBJECT_TYPE': 'no label', 'GUID': 'no label', });
