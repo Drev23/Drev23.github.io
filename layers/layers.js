@@ -5,6 +5,7 @@ var wms_layers = [];
 
         var lyr_BaseMap_0 = new ol.layer.Tile({
             'title': 'Base Map',
+            permalink:"S",
             //'type': 'base',
             'opacity': 1.000000,
             
